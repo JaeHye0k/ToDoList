@@ -1,0 +1,192 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #34495e;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+ul{
+    position: relative;
+}
+li{
+    margin-bottom: 5px;
+}
+button{
+    position: absolute;
+    right: 1vw;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+button:hover{
+    margin: 2px;
+    background-color: gray;
+}
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    animation: spin 2s linear infinite;
+}
+#pageContent{
+    display: none;
+}
+.input{
+    color: inherit;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+}
+.input::placeholder{
+    color: inherit;
+    text-align: center;
+    opacity: 0.5;
+}
+.input:focus::placeholder{
+    color: transparent;
+}
+.button{    
+    cursor: pointer;
+    line-height: 18px;
+    width: 4em;
+    border: none;
+    border-radius: 5px;
+    font-family: auto;
+}
+.button:hover{
+    transition-duration: 0.4s;
+    background-color: gray;
+    color: white;
+}
+.animateContent{
+    position: relative;
+    animation: animateContent 1s;
+}
+.bgimg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: animateContent 1s;
+}
+.phrase{
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 25px;
+    line-height: 1;
+    animation: animateContent 1s linear;
+}
+.error {
+    position: relative;
+    animation: shake 0.1s linear;
+    animation-iteration-count: 3;
+}
+.errorComment{
+    font-size: 12px;
+    color: red;
+}
+.left{
+    width: 59vw;
+    height: 93vh;
+    position: fixed;
+    left: 0;
+    margin-top: 7vh;
+    margin-left: 5vw;
+}
+.right{
+    width: 35vw;
+    height: 93vh;
+    position: fixed;
+    right: 0;
+    margin-top: 7vh;
+    backdrop-filter: blur(3px);
+    animation: leftSlide 1s;
+}
+.bottom{
+    margin-top: 25vh;
+}
+.toDoList{
+    overflow-y: auto;
+    padding-left: 0;
+    height: 70vh;
+    margin-right: 15vw;
+}
+.toDoList::-webkit-scrollbar{
+    width: 7px;
+}
+.toDoList::-webkit-scrollbar-thumb{
+    width: 7px;
+    border-radius: 10px;
+    background-color: white;
+}
+.toDoList::-webkit-scrollbar-track{
+    width: 7px;
+    border-radius: 10px;
+    background-color: gray;
+}
+.checked{
+    text-decoration: line-through;
+    text-decoration-color: red;
+    color: rgba(255, 255, 255, 0.5);
+}
+.unChecked{
+    text-decoration: none;
+    color: currentColor; 
+}
+li{
+    list-style-type: none;
+}
+.clock{
+    font-size: 3rem;
+}
+.form, .greeting{
+    display: none;
+}
+.unShowing{
+    display: none;
+}
+.showing{
+    display: block;
+}
+.showList{
+    position: fixed;
+    right: 0;
+    z-index: 1;
+    margin-top: 7vh;
+    margin-right: 1vw;
+}
+.showList:hover{
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.toDoListTitle{
+    margin-top: 0;
+}
+@keyframes spin {
+    from{ transform: rotate(0deg); }
+    to{ transform: rotate(360deg); }
+}
+@keyframes animateContent{
+    from{ bottom:-100px; opacity:0 } 
+    to{ bottom:0; opacity:1 }
+}
+@keyframes shake {
+    0% { left: -5px; }
+    100% { right: -5px; }
+}
+@keyframes leftSlide{
+    from{margin-right: -30vw;}
+    to{margin-right: 0;}
+}

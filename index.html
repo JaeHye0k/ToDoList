@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do List</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="loader"></div>
+        <div id="pageContent" class="animateContent">
+            <div class="left">
+                <div class="js-date"></div>
+                <time class="js-clock clock"></time>
+                <div class="js-weather"></div>
+                <div class="bottom">
+                    <form class="js-form form">
+                        <input type="text" class="input" placeholder="What is your name?">
+                    </form>
+                    <h2 class="js-greeting greeting"></h2>
+                    <div class="js-phrase"></div>
+                </div>
+            </div>
+            <div class="showList">
+                <svg class="listIcon" fill="currentColor" width="0.422222in" height="0.444444in" viewBox="0 0 38 40">
+                    <path stroke="black" stroke-width="1" d="M 1.90,31.25
+                    C 1.90,29.38 3.43,27.86 5.32,27.86
+                      7.21,27.86 8.74,29.38 8.74,31.25
+                      8.74,33.12 7.21,34.64 5.32,34.64
+                      5.32,34.64 5.32,34.64 5.32,34.64
+                      3.43,34.64 1.90,33.12 1.90,31.25
+                      1.90,31.25 1.90,31.25 1.90,31.25 Z
+                    M 5.32,9.79
+                    C 7.21,9.79 8.74,8.27 8.74,6.40
+                      8.74,4.53 7.21,3.01 5.32,3.01
+                      3.43,3.01 1.90,4.53 1.90,6.40
+                      1.90,8.27 3.43,9.79 5.32,9.79
+                      5.32,9.79 5.32,9.79 5.32,9.79 Z
+                    M 5.32,22.21
+                    C 7.21,22.21 8.74,20.69 8.74,18.82
+                      8.74,16.95 7.21,15.44 5.32,15.44
+                      3.43,15.44 1.90,16.95 1.90,18.82
+                      1.90,20.69 3.43,22.21 5.32,22.21
+                      5.32,22.21 5.32,22.21 5.32,22.21 Z
+                    M 16.72,8.66
+                    C 16.72,8.66 33.82,8.66 33.82,8.66
+                      35.08,8.66 36.10,7.65 36.10,6.40
+                      36.10,5.15 35.08,4.14 33.82,4.14
+                      33.82,4.14 16.72,4.14 16.72,4.14
+                      15.46,4.14 14.44,5.15 14.44,6.40
+                      14.44,7.65 15.46,8.66 16.72,8.66
+                      16.72,8.66 16.72,8.66 16.72,8.66 Z
+                    M 16.72,21.08
+                    C 16.72,21.08 33.82,21.08 33.82,21.08
+                      35.08,21.08 36.10,20.07 36.10,18.82
+                      36.10,17.58 35.08,16.56 33.82,16.56
+                      33.82,16.56 16.72,16.56 16.72,16.56
+                      15.46,16.56 14.44,17.58 14.44,18.82
+                      14.44,20.07 15.46,21.08 16.72,21.08
+                      16.72,21.08 16.72,21.08 16.72,21.08 Z
+                    M 16.72,33.51
+                    C 16.72,33.51 33.82,33.51 33.82,33.51
+                      35.08,33.51 36.10,32.49 36.10,31.25
+                      36.10,30.00 35.08,28.99 33.82,28.99
+                      33.82,28.99 16.72,28.99 16.72,28.99
+                      15.46,28.99 14.44,30.00 14.44,31.25
+                      14.44,32.49 15.46,33.51 16.72,33.51
+                      16.72,33.51 16.72,33.51 16.72,33.51 Z" />
+                </svg>
+            </div>
+            <div class="right">
+                <form class="js-toDoForm toDoForm">
+                    <h1 class="toDoListTitle">To Do List</h1>
+                    <input type="text" class="input" placeholder="Wirte a to do">
+                    <input type="submit" class="button" value="Submit">
+                    <input type="button" class="js-clear button" value="Clear">
+                </form>
+                <span class="js-errorComment errorComment unShowing">할 일을 적어주세요</span>
+                <ul class="js-toDoList toDoList"></ul>
+            </div>
+        </div>
+        <script src="./greeting.js"></script>
+        <script src="./clock.js"></script>
+        <script src="./check.js"></script>
+        <script src="./todo.js"></script>
+        <script src="./bg.js"></script>
+        <script src="./weather.js"></script>
+        <script src="./phrase.js"></script>
+        <script src="./showList.js"></script>
+        <script>
+            window.onload = function(){
+                setTimeout(showPage, 100);
+            }
+
+            function showPage() {
+                document.querySelector(".right").style.display = "none";
+                document.querySelector("#loader").style.display = "none";
+                document.querySelector("#pageContent").style.display = "block";
+            }
+        </script>
+    </body>
+</html>
