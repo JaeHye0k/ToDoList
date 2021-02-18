@@ -14,6 +14,12 @@ function handleSubmit(event){
     paintGreeting(currentValue);
     saveName(currentValue);
 }
+function handleClick(event){
+    const greeting = event.target;
+    greeting.classList.remove(SHOWING_CN);
+    askForName();
+    localStorage.removeItem(USER_LS);
+}
 function askForName(){
     form.classList.add(SHOWING_CN);
     form.addEventListener("submit", handleSubmit);
@@ -22,6 +28,7 @@ function paintGreeting(text){
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
     greeting.innerText = `Hello, ${text}`;
+    greeting.addEventListener("click",handleClick);
 }
 function loadName(){
     const currentUser = localStorage.getItem(USER_LS);
