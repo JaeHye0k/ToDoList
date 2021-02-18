@@ -24,6 +24,7 @@ function handleChecks(event){ // paintChecks 함수로 나누기
         checkNum -= 1;
     }
     saveChecks();
+    finishToDos();
 }
 function paintCheckBox(li, newId){
     const checkBox = document.createElement('input');
@@ -32,17 +33,6 @@ function paintCheckBox(li, newId){
     checkBox.value = newId;
     checkBox.addEventListener("click", handleChecks);
     li.appendChild(checkBox);
-}
-
-function paintChecks(){
-    const checkedToDos = localStorage.getItem(checkedToDos_LS); 
-    if(checkedToDos === null){ // checkedToDos란 이름이 없을경우
-        
-    } else if(checkedToDos === "[]"){ // checkedToDos의 값이 비어있을 경우
-
-    } else{ // checkedToDos에 값이 있을 경우
-
-    }
 }
 function loadChecks(){
     const loadedChecks = localStorage.getItem(checkedToDos_LS);

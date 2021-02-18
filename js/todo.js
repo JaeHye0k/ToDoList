@@ -3,6 +3,7 @@ const toDoForm = document.querySelector('.js-toDoForm'),
     toDoList = document.querySelector('.js-toDoList'),
     clear = document.querySelector('.js-clear'),
     errorComment = document.querySelector('.js-errorComment'),
+    finish = document.querySelector('.finish'),
     TODOS_LS = "toDos", 
     UNSHOWING_CN = "unShowing";
 
@@ -38,7 +39,6 @@ function deleteToDo(event){
     saveToDos();
     saveChecks();
 }
-
 function saveToDos(){
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos)); //JSON.stringify(): object => string
 }
@@ -91,6 +91,20 @@ function paintToDo(text, todoId){
     toDos.push(toDosObj);
     saveToDos();
 }
+function finishToDos(){
+    const loadedChecks = localStorage.getItem(checkedToDos_LS);
+    const parsedChecks = JSON.parse(loadedChecks);
+    const parsedChecksLength = parsedChecks.length;
+    const toDoListLength = toDoList.childNodes.length;
+    if(parsedChecksLength ===  toDoListLength && toDoListLength >= 1){
+        finish.classList.remove('unShowing');
+        finish.classList.add('showing');
+    }
+    else{
+        finish.classList.remove('showing');
+        finish.classList.add('unShowing');
+    }
+}
 function loadToDos(){
     const loadedToDos = localStorage.getItem(TODOS_LS);
     if(loadedToDos !== null){
@@ -105,5 +119,6 @@ function init(){
     loadChecks();
     toDoForm.addEventListener("submit", handleSubmit);
     clear.addEventListener("click", deleteAll);
+    finishToDos();
 }
 init();
